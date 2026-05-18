@@ -4,6 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "examplePy"
+version = "0.0.1"
 authors = [
     {name = "Some Maintainer", email = "some-email@pyopensci.org"},
 ]
@@ -19,6 +20,15 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    "dependency-package-name-1",
-    "dependency-package-name-2",
+    "pandas"
 ]
+
+[tool.ruff.lint]
+select = [
+    "E", # pycodestyle errors
+    "W", # pycodestyle warnings
+    "F", # pyflakes. "E" + "W" + "F" + "C90" (mccabe complexity) is equivalent to flake8
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["examplePy"]
